@@ -45,6 +45,12 @@ function create(){
     this.add.image(D_WIDTH/2, D_HEIGHT/2, "sky");
     player = this.physics.add.sprite(240, 80, "tanuki");
 
+	player.setInteractive({ draggable: true })
+        .on("drag", function(pointer, dragX, dragY) {
+            player.x = dragX;
+            player.y = dragY;
+        });
+
     let staticGroup = this.physics.add.staticGroup();
     staticGroup.create(D_WIDTH/2, D_HEIGHT-32, "ground");
     this.physics.add.collider(player, staticGroup);
@@ -64,6 +70,24 @@ function create(){
     this.physics.add.overlap(player,coinGroup, (p,c)=>{
         c.destroy();
     },null, this);
+}
+
+function update2(){
+	console.log("update!!");
+    // キーボードの情報を取得
+	let cursors = this.input.keyboard.createCursorKeys();
+	if(cursors.up.isDown){
+		//console.log("Up!!");
+		player.setVelocityY(-200);// 上方向の速度を設定
+	}else if(cursors.left.isDown){
+		//console.log("Left");
+		player.setVelocityX(-200);// 左方向の速度を設定
+	}else if(cursors.right.isDown){
+		//console.log("Right!!");
+		player.setVelocityX(200);// 右方向の速度を設定
+	}else{
+		player.setVelocityX(0);// 横方向の速度を0
+	}
 }
 
 function update(){
