@@ -31,13 +31,13 @@ let phaser = new Phaser.Game(config);
 
 function preload(){
 	console.log("preload!!");
-    this.load.image("block", "../assets/block.png");
-	this.load.image("ground", "../assets/ground.png");
-	this.load.image("pillar", "../assets/pillar.png");
-	this.load.image("post", "../assets/post.png");
-	this.load.image("sky", "../assets/sky.png");
-	this.load.image("tanuki", "../assets/tanuki.png");
-    this.load.image("coin", "../assets/coin.png");
+    this.load.image("block", "./assets/block.png");
+	this.load.image("ground", "./assets/ground.png");
+	this.load.image("pillar", "./assets/pillar.png");
+	this.load.image("post", "./assets/post.png");
+	this.load.image("sky", "./assets/sky.png");
+	this.load.image("tanuki", "./assets/tanuki.png");
+    this.load.image("coin", "./assets/coin.png");
 }
 
 function create(){
